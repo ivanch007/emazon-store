@@ -3,6 +3,7 @@ package com.bootcampPragma.emazon.domain.usecase;
 import com.bootcampPragma.emazon.domain.api.CategoryServicePort;
 import com.bootcampPragma.emazon.domain.exceptions.CategoryInvalidDescriptionException;
 import com.bootcampPragma.emazon.domain.exceptions.CategoryInvalidNameException;
+import com.bootcampPragma.emazon.domain.exceptions.CategoryNameAlreadyExistsException;
 import com.bootcampPragma.emazon.domain.model.Category;
 import com.bootcampPragma.emazon.domain.spi.CategoryPersistencePort;
 
@@ -26,7 +27,7 @@ public class CategoryUseCase implements CategoryServicePort {
             throw new CategoryInvalidDescriptionException();
         }
         if (categoryPersistencePort.existsByName(category.getName())) {
-            throw new CategoryInvalidNameException(); //
+            throw new CategoryNameAlreadyExistsException();
         }
         categoryPersistencePort.saveCategory(category);
     }
