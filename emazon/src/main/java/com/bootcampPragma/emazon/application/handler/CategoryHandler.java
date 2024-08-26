@@ -23,10 +23,16 @@ public class CategoryHandler implements ICategoryHandler {
     @Override
     public void saveCategory(CategoryRequest categoryRequest) {
         Category category = categoryRequestMapper.toCategory(categoryRequest);
+        categoryServicePort.saveCategory(category);
     }
 
     @Override
     public List<CategoryResponse> getAllCategory() {
-        return categoryResponseMapper.toResponseList(categoryServicePort.getAllCategory());
+
+        List<CategoryResponse> responseList = categoryResponseMapper.toResponseList(categoryServicePort.getAllCategory());
+
+        //categoryPaginationUtil.paginate(responseList);
+
+        return responseList;
     }
 }

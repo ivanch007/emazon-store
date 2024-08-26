@@ -1,5 +1,6 @@
 package com.bootcampPragma.emazon.infrastructure.output.jpa.adapter;
 
+import com.bootcampPragma.emazon.domain.exceptions.CategoryDoesntExistException;
 import com.bootcampPragma.emazon.domain.exceptions.CategoryNameAlreadyExistsException;
 import com.bootcampPragma.emazon.domain.exceptions.NoDataFound;
 import com.bootcampPragma.emazon.domain.model.Category;
@@ -10,6 +11,7 @@ import com.bootcampPragma.emazon.infrastructure.output.jpa.repository.ICategoryR
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 public class CategoryJpaAdapter implements CategoryPersistencePort {
@@ -29,7 +31,7 @@ public class CategoryJpaAdapter implements CategoryPersistencePort {
     @Override
     public List<Category> getAllCategory() {
         List<CategoryEntity> categoryEntityList = categoryRepository.findAll();
-        if (categoryEntityList.isEmpty()){
+        if (categoryEntityList.isEmpty()) {
             throw new NoDataFound();
         }
         return categoryEntityMapper.toCategoryList(categoryEntityList);
@@ -37,6 +39,8 @@ public class CategoryJpaAdapter implements CategoryPersistencePort {
 
     @Override
     public boolean existsByName(String name) {
+
         return false;
+
     }
 }

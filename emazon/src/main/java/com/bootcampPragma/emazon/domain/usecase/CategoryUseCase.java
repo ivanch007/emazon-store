@@ -23,9 +23,11 @@ public class CategoryUseCase implements CategoryServicePort {
             throw new CategoryInvalidNameException();
 
         }
+
         if (category.getDescription() == null || category.getDescription().isBlank() || category.getDescription().length() > 90) {
             throw new CategoryInvalidDescriptionException();
         }
+
         if (categoryPersistencePort.existsByName(category.getName())) {
             throw new CategoryNameAlreadyExistsException();
         }
