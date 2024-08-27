@@ -33,7 +33,7 @@ public class CategoryJpaAdapter implements CategoryPersistencePort {
         Pageable pagination = PageRequest.of(page, size, getSortingType(sortingType));
         List<CategoryEntity> categoryEntityList = categoryRepository.findAll(pagination).getContent();
         if (categoryEntityList.isEmpty()) {
-            throw new NoDataFound();//corregir
+            throw new NoDataFound();
         }
         return categoryEntityMapper.toCategoryList(categoryEntityList);
     }
