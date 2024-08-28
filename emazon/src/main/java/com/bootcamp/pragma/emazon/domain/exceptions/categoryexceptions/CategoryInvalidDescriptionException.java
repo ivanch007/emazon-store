@@ -1,4 +1,4 @@
-package com.bootcamp.pragma.emazon.domain.exceptions;
+package com.bootcamp.pragma.emazon.domain.exceptions.categoryexceptions;
 
 public class CategoryInvalidDescriptionException extends IllegalArgumentException{
     public CategoryInvalidDescriptionException(){

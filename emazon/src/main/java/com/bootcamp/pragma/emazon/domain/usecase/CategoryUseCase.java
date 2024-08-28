@@ -1,7 +1,7 @@
 package com.bootcamp.pragma.emazon.domain.usecase;
 
 import com.bootcamp.pragma.emazon.domain.api.CategoryServicePort;
-import com.bootcamp.pragma.emazon.domain.exceptions.CategoryNameAlreadyExistsException;
+import com.bootcamp.pragma.emazon.domain.exceptions.categoryexceptions.CategoryNameAlreadyExistsException;
 import com.bootcamp.pragma.emazon.domain.model.Category;
 import com.bootcamp.pragma.emazon.domain.spi.CategoryPersistencePort;
 

@@ -1,8 +1,8 @@
 //package com.bootcampPragma.emazon;
 //
-//import com.bootcamp.pragma.emazon.domain.exceptions.CategoryInvalidDescriptionException;
-//import com.bootcamp.pragma.emazon.domain.exceptions.CategoryInvalidNameException;
-//import com.bootcamp.pragma.emazon.domain.exceptions.CategoryNameAlreadyExistsException;
+//import com.bootcamp.pragma.emazon.domain.exceptions.categoryExceptions.CategoryInvalidDescriptionException;
+//import com.bootcamp.pragma.emazon.domain.exceptions.categoryExceptions.CategoryInvalidNameException;
+//import com.bootcamp.pragma.emazon.domain.exceptions.categoryExceptions.CategoryNameAlreadyExistsException;
 //import com.bootcamp.pragma.emazon.domain.model.Category;
 //import com.bootcamp.pragma.emazon.domain.spi.CategoryPersistencePort;
 //import com.bootcamp.pragma.emazon.domain.usecase.CategoryUseCase;

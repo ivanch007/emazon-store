@@ -1,6 +1,6 @@
 package com.bootcamp.pragma.emazon.infrastructure.output.jpa.adapter;
 
-import com.bootcamp.pragma.emazon.domain.exceptions.CategoryNameAlreadyExistsException;
+import com.bootcamp.pragma.emazon.domain.exceptions.categoryexceptions.CategoryNameAlreadyExistsException;
 import com.bootcamp.pragma.emazon.domain.exceptions.NoDataFound;
 import com.bootcamp.pragma.emazon.domain.model.Category;
 import com.bootcamp.pragma.emazon.domain.spi.CategoryPersistencePort;
