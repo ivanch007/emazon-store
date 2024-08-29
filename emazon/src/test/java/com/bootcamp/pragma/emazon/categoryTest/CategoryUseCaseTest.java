@@ -56,10 +56,10 @@ class CategoryUseCaseTest {
 
 
         // Arrange
-        String longName = "A".repeat(91); // Nombre con 51 caracteres
+        String longName = "A".repeat(91);
         Category categoryLongName = new Category(1L, longName, "Valid description");
 
-        String longName2 = "A".repeat(1000); // Nombre con 51 caracteres
+        String longName2 = "A".repeat(1000);
         Category categoryLongName2 = new Category(1L, longName2, "Valid description");
 
         // Act & Assert

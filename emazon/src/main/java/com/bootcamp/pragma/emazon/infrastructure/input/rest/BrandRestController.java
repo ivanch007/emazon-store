@@ -2,7 +2,6 @@ package com.bootcamp.pragma.emazon.infrastructure.input.rest;
 
 import com.bootcamp.pragma.emazon.application.dto.BrandRequest;
 import com.bootcamp.pragma.emazon.application.dto.BrandResponse;
-import com.bootcamp.pragma.emazon.application.handler.BrandHandler;
 import com.bootcamp.pragma.emazon.application.handler.IBrandHandler;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -14,7 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/brand/")
 @RequiredArgsConstructor
-public class BranRestController {
+public class BrandRestController {
 
     private final IBrandHandler brandHandler;
 
@@ -22,7 +21,6 @@ public class BranRestController {
     public ResponseEntity<Void> saveBrand(@RequestBody BrandRequest brandRequest){
         brandHandler.saveCategory(brandRequest);
         return ResponseEntity.status(HttpStatus.CREATED).build();
-
     }
 
     @GetMapping
