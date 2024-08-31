@@ -8,6 +8,9 @@ import com.bootcamp.pragma.emazon.infrastructure.output.jpa.entity.BrandEntity;
 import com.bootcamp.pragma.emazon.infrastructure.output.jpa.mapper.BrandEntityMapper;
 import com.bootcamp.pragma.emazon.infrastructure.output.jpa.repository.IBrandRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 
 import java.util.List;
 
@@ -26,16 +29,28 @@ public class BrandJpaAdapter implements BrandPersistencePort {
     }
 
     @Override
-    public List<Brand> getAllBrands() {
-        List<BrandEntity> brandEntityList = brandRepository.findAll();
+    public List<Brand> getAllBrands(Integer page, Integer size, String sortingType) {
+        Pageable pagination = PageRequest.of(page, size, getSortingType(sortingType));
+        List<BrandEntity> brandEntityList = brandRepository.findAll(pagination).getContent();
         if (brandEntityList.isEmpty()){
             throw new NoDataFound();
         }
         return brandEntityMapper.toBrandList(brandEntityList);
     }
+    private Sort getSortingType(String sortingType){
+        if (sortingType.equals("asc"))
+            return Sort.by("name").ascending();
+
+        return Sort.by("name").descending();
+    }
 
     @Override
     public boolean existsByName(String name) {
         return false;
+    }
+
+    @Override
+    public Long countTotalBrands() {
+        return brandRepository.count();
     }
 }

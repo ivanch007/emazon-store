@@ -1,8 +1,10 @@
 package com.bootcamp.pragma.emazon.infrastructure.input.rest;
 
+
 import com.bootcamp.pragma.emazon.application.dto.CategoryRequest;
 import com.bootcamp.pragma.emazon.application.dto.CategoryResponse;
 import com.bootcamp.pragma.emazon.application.handler.ICategoryHandler;
+import com.bootcamp.pragma.emazon.domain.util.pagination.PagedResult;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,10 +25,12 @@ public class CategoryRestController {
     }
 
     @GetMapping
-    public ResponseEntity<List<CategoryResponse>> getCategories(@RequestParam(defaultValue = "0") Integer page,
-                                                                @RequestParam(defaultValue = "10") Integer size,
-                                                                @RequestParam(defaultValue = "asc") String sortingType){
-        return ResponseEntity.ok(categoryHandler.getAllCategory(page, size, sortingType));
+    public ResponseEntity<PagedResult<CategoryResponse>> getAllCategories(@RequestParam(defaultValue = "0") Integer page,
+                                                                       @RequestParam(defaultValue = "10") Integer size,
+                                                                       @RequestParam(defaultValue = "asc") String sortingType){
+
+        PagedResult<CategoryResponse> response = categoryHandler.getAllCategory(page, size, sortingType);
+        return ResponseEntity.ok(response);
     }
 
 }

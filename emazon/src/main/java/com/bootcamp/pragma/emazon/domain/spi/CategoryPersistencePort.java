@@ -11,4 +11,6 @@ public interface CategoryPersistencePort {
     List<Category> getAllCategory(Integer page, Integer size, String sortingType);
 
     boolean existsByName(String name);
+
+    Long countTotalCategories();
 }

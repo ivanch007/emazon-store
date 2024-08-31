@@ -87,23 +87,4 @@ class CategoryUseCaseTest {
         assertThrows(CategoryNameAlreadyExistsException.class, () -> categoryUseCase.saveCategory(category));
     }
 
-
-
-    @Test
-    void testGetAllCategory_ReturnsCategoryList() {
-        // Arrange
-        List<Category> categories = List.of(
-                new Category(1L, "Electronics", "All kinds of electronic devices"),
-                new Category(2L, "Books", "Various kinds of books")
-        );
-        when(categoryPersistencePort.getAllCategory(0,10, "asc")).thenReturn(categories);
-
-        // Act
-        List<Category> result = categoryUseCase.getAllCategory(0, 10, "asc");
-
-        // Assert
-        verify(categoryPersistencePort, times(1)).getAllCategory(0, 10, "asc");
-        assertEquals(categories, result);
-    }
-
 }

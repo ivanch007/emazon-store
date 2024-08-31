@@ -8,7 +8,9 @@ public interface BrandPersistencePort {
 
     void saveBrand(Brand brand);
 
-    List<Brand> getAllBrands();
+    List<Brand> getAllBrands(Integer page, Integer size, String sortingType);
 
     boolean existsByName(String name);
+
+    Long countTotalBrands();
 }

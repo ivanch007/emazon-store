@@ -50,4 +50,9 @@ public class CategoryJpaAdapter implements CategoryPersistencePort {
         return false;
 
     }
+
+    @Override
+    public Long countTotalCategories() {
+        return categoryRepository.count();
+    }
 }
