@@ -9,6 +9,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Table(name = "category")
 @NoArgsConstructor
@@ -30,4 +33,7 @@ public class CategoryEntity {
     @Size(max = 90)
     @Column(name = "description", nullable = false)
     private String description;
+
+    @ManyToMany(mappedBy = "categories")
+    private Set<ArticleEntity> articles = new HashSet<>();
 }
